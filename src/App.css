@@ -1,0 +1,16 @@
+*{ border: none; text-decoration: none; }
+
+.App {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+div.Light{
+  background-color: #BBE9EA;
+}
+
+div.Dark{
+  background-color: #5A696B;
+}

@@ -1,0 +1,33 @@
+.linear{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+button{
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+button:hover{
+    height: 150px;
+    width: 150px;
+    background-color: aquamarine;
+    border: 2px solid aliceblue;
+}
+
+.clicked{
+    background-color: aquamarine;
+}
