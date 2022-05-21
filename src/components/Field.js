@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function Field({name, player}){
+function Field({player}){
 
     const [field, setField] = useState('')
 
