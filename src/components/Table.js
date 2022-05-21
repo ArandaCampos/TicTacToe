@@ -1,44 +1,27 @@
-import { useState } from "react"
 import styles from './Table.module.css'
 import Field from './Field'
-import Play from './Play'
 
 function Table(){
 
-    const [player, setPlayer] = useState('x')
-    const fields = ['', '', '']
-
-    function play(col, lin){
-        setPlayer(player === "x" ? "o" : "x")
-    }
-
     return(
         <div>
-            <Play who={player} />
             
             <div className={styles.column}>
                 <div className={styles.linear}>
-                     
-                    {fields.map((_p, index) => (
-                    <div onClick={play}>
-                        <Field name={index} player={player} />
-                    </div>
-                    ))}
+                    <Field id={0} />
+                    <Field id={1} />
+                    <Field id={2} />
                 </div>
                 <div className={styles.linear}>
-                    {fields.map((_p, index) => (
-                    <div onClick={play}>
-                        <Field name={index} player={player} />
-                    </div>
-                    ))}
+                    <Field id={3} />
+                    <Field id={4} />
+                    <Field id={5} />
                 </div>
                 <div className={styles.linear}>
-                    {fields.map((_p, index) => (
-                    <div onClick={play}>
-                        <Field name={index} player={player} />
-                    </div>
-                    ))}
-                </div>
+                    <Field id={6} />
+                    <Field id={7} />
+                    <Field id={8} />
+                </div>    
             </div>
         </div>
     )
