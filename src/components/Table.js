@@ -6,7 +6,7 @@ import Play from './Play'
 function Table(){
 
     const [cells, setCells] = useState(Array(9).fill(''))
-    const [player, setPlayer] = useState('x')
+    const [player, setPlayer] = useState('X')
     const [winner, setWinner] = useState()
 
 	function checkForWinner(squares){
@@ -54,12 +54,12 @@ function Table(){
 
 		let squares = [...cells]
 
-		if (player === 'x') {
-			squares[id] = 'x'
-            setPlayer('o')
-		} else if (player === 'o'){
-			squares[id] = 'o'
-            setPlayer('x')
+		if (player === 'X') {
+			squares[id] = 'X'
+            setPlayer('O')
+		} else if (player === 'O'){
+			squares[id] = 'O'
+            setPlayer('X')
         }
 
 		setCells(squares)

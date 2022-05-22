@@ -1,7 +1,9 @@
+import styles from './Table.module.css'
+
 function Play({who}){
     return(
         <>
-            <p>{who}</p>
+            <p className={styles.linear}>Player: {who}</p>
         </>
     )
 }
