@@ -66,7 +66,6 @@ function Table(){
 
 	function restart(winner){
         alert('O jogador ' + winner + ' ganhou!')
-		setWinner(null)
 		setCells(Array(9).fill(''))
 	};
 
