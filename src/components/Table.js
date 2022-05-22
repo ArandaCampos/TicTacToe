@@ -7,7 +7,6 @@ function Table(){
 
     const [cells, setCells] = useState(Array(9).fill(''))
     const [player, setPlayer] = useState('X')
-    const [winner, setWinner] = useState()
 
 	function checkForWinner(squares){
 		let combos = {
@@ -39,7 +38,6 @@ function Table(){
 					squares[pattern[0]] === squares[pattern[1]] &&
 					squares[pattern[1]] === squares[pattern[2]]
 				) {
-					setWinner(squares[pattern[0]])
                     restart(squares[pattern[0]])
 				}
 			})
@@ -66,14 +64,14 @@ function Table(){
 		checkForWinner(squares)
 	};
 
-	function restart(win){
-        alert('O jogador ' + win + ' ganhou!')
+	function restart(winner){
+        alert('O jogador ' + winner + ' ganhou!')
 		setWinner(null)
 		setCells(Array(9).fill(''))
 	};
 
     return(
-        
+
         <div>
             <Play who={player} />
             <div className={styles.column}>
@@ -91,7 +89,7 @@ function Table(){
                     <button className={styles.field} onClick={() => handleClick(6)}><Field play={cells[6]} /></button>
                     <button className={styles.field} onClick={() => handleClick(7)}><Field play={cells[7]} /></button>
                     <button className={styles.field} onClick={() => handleClick(8)}><Field play={cells[8]} /></button>
-                </div>    
+                </div>
             </div>
         </div>
     )
