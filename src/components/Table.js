@@ -8,9 +8,9 @@ function Table(){
     const [cells, setCells] = useState(Array(9).fill(''))
     const [player, setPlayer] = useState('X')
 	const [winner, setWinner] = useState('')
-	
+
 	useEffect(() => {
-		let empty = cells.includes("") ? true : false
+		let voids = cells.includes("") ? true : false
 		let combos = {
 			across: [
 				[0, 1, 2],
@@ -43,7 +43,7 @@ function Table(){
 				}
 			})
 		}
-		if (!empty){
+		if (!voids){
 			alert("Deu velha")
 			reset()
 		} 
