@@ -8,7 +8,7 @@ function Table(){
     const [cells, setCells] = useState(Array(9).fill(''))
     const [player, setPlayer] = useState('X')
 	const [winner, setWinner] = useState('')
-
+	
 	useEffect(() => {
 		let empty = cells.includes("") ? true : false
 		let combos = {
