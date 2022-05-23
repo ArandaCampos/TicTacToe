@@ -22,7 +22,7 @@
     >> cd TicTacToe
 
     # iniciar o react
-    >> npx create-react-app
+    >> npx create-react-app .
 
     # Iniciar o servidor local
     >> npm start
