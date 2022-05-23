@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Table.module.css'
 import Field from './Field'
 import Play from './Play'
@@ -7,8 +7,10 @@ function Table(){
 
     const [cells, setCells] = useState(Array(9).fill(''))
     const [player, setPlayer] = useState('X')
+	const [winner, setWinner] = useState('')
 
-	function checkForWinner(squares){
+	useEffect(() => {
+		let empty = cells.includes("") ? true : false
 		let combos = {
 			across: [
 				[0, 1, 2],
@@ -25,24 +27,40 @@ function Table(){
 				[2, 4, 6],
 			],
 		}
-        console.log(squares)
 		for (let combo in combos) {
 			combos[combo].forEach((pattern) => {
 				if (
-					squares[pattern[0]] === '' ||
-					squares[pattern[1]] === '' ||
-					squares[pattern[2]] === ''
+					cells[pattern[0]] === '' ||
+					cells[pattern[1]] === '' ||
+					cells[pattern[2]] === ''
 				) {
 					// do nothing
 				} else if (
-					squares[pattern[0]] === squares[pattern[1]] &&
-					squares[pattern[1]] === squares[pattern[2]]
+					cells[pattern[0]] === cells[pattern[1]] &&
+					cells[pattern[1]] === cells[pattern[2]]
 				) {
-                    restart(squares[pattern[0]])
+                    setWinner(cells[pattern[0]])
 				}
 			})
 		}
+		if (!empty){
+			alert("Deu velha")
+			reset()
+		} 
+	}, [cells])
+
+	function reset(){
+		setCells(Array(9).fill(''))
+		setPlayer('X')
 	}
+
+	useEffect(() =>{
+		if (winner !== ''){
+			alert('Jogador ' + winner + ' ganhou!')
+			reset()
+			setWinner('')
+		}
+	}, [winner])
 
 	function handleClick(id){
 		if (cells[id] !== '') {
@@ -52,21 +70,10 @@ function Table(){
 
 		let squares = [...cells]
 
-		if (player === 'X') {
-			squares[id] = 'X'
-            setPlayer('O')
-		} else if (player === 'O'){
-			squares[id] = 'O'
-            setPlayer('X')
-        }
-
+		player === 'X' ? squares[id] = 'X' : squares[id] = 'O'
+		player === 'X' ? setPlayer('O') : setPlayer('X')		
+		
 		setCells(squares)
-		checkForWinner(squares)
-	};
-
-	function restart(winner){
-        alert('O jogador ' + winner + ' ganhou!')
-		setCells(Array(9).fill(''))
 	};
 
     return(
