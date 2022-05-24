@@ -108,8 +108,7 @@ function Table(){
                 </div>
             </div>
 			<div className={styles.column}>
-				<h5>Goals</h5>
-				<p> X: {score[0]} |  O: {score[1]}</p>
+				<p> X: {score[0]} &emsp; | &emsp; O: {score[1]}</p>
 			</div>
 		</div>
     )
