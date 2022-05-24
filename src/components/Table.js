@@ -8,6 +8,7 @@ function Table(){
     const [cells, setCells] = useState(Array(9).fill(''))
     const [player, setPlayer] = useState('X')
 	const [winner, setWinner] = useState('')
+	const [score, setScore] = useState([0, 0])
 
 	useEffect(() => {
 		let voids = cells.includes("") ? true : false
@@ -62,6 +63,13 @@ function Table(){
 			reset()
 			setWinner('')
 		}
+		let points = [...score]
+		if (winner === 'X'){
+			points[0] += 1
+		} else if (winner === 'O') {
+			points[1] += 1
+		}
+		setScore(points)
 	}, [winner])
 
 	function handleClick(id){
@@ -99,7 +107,11 @@ function Table(){
                     <button className={styles.field} onClick={() => handleClick(8)}><Field play={cells[8]} /></button>
                 </div>
             </div>
-        </div>
+			<div className={styles.column}>
+				<h5>Goals</h5>
+				<p> X: {score[0]} |  O: {score[1]}</p>
+			</div>
+		</div>
     )
 }
 

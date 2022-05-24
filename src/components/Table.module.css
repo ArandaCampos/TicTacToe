@@ -3,7 +3,8 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 5px;
+    align-items: center;
+    gap: 3px;
 }
 
 .column{
@@ -11,7 +12,8 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 5px;
+    align-items: center;
+    gap: 3px;
 }
 
 .field{
