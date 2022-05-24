@@ -11,6 +11,7 @@ function Table(){
 
 	useEffect(() => {
 		let voids = cells.includes("") ? true : false
+		let win = 0
 		let combos = {
 			across: [
 				[0, 1, 2],
@@ -40,10 +41,11 @@ function Table(){
 					cells[pattern[1]] === cells[pattern[2]]
 				) {
                     setWinner(cells[pattern[0]])
+					win = 1
 				}
 			})
 		}
-		if (!voids){
+		if (!voids && !win){
 			alert("Deu velha")
 			reset()
 		} 
