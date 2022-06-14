@@ -17,7 +17,6 @@
 }
 
 .field{
-
     height: 150px;
     width: 150px;
     border-radius: 10px;
@@ -54,4 +53,22 @@
   
 .closebtn:hover {
     color: black;
+}
+
+
+@media only screen and (max-width: 600px) {
+    p{
+        font-size: medium;
+    }
+    .field{
+        height: 90px;
+        width: 90px;
+    }
+
+    .field:hover{
+        height: 90px;
+        width: 90px;
+        background-color: aquamarine;
+        border: 2px solid aliceblue;
+    }
 }

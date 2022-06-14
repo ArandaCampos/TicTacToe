@@ -49,7 +49,7 @@ function Table(){
 		if (!voids && !win){
 			alert("Deu velha")
 			reset()
-		} 
+		}
 	}, [cells])
 
 	function reset(){
@@ -63,14 +63,14 @@ function Table(){
 			reset()
 			setWinner('')
 		}
-		let points = [...score]
+        let points = [...score]
 		if (winner === 'X'){
 			points[0] += 1
 		} else if (winner === 'O') {
 			points[1] += 1
 		}
 		setScore(points)
-	}, [winner])
+	}, [winner, score])
 
 	function handleClick(id){
 		if (cells[id] !== '') {
@@ -81,8 +81,8 @@ function Table(){
 		let squares = [...cells]
 
 		player === 'X' ? squares[id] = 'X' : squares[id] = 'O'
-		player === 'X' ? setPlayer('O') : setPlayer('X')		
-		
+		player === 'X' ? setPlayer('O') : setPlayer('X')
+
 		setCells(squares)
 	};
 
